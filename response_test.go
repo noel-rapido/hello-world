@@ -8,7 +8,7 @@ import (
 func TestWriteResponse(t *testing.T) {
 	var buff = bytes.NewBuffer([]byte{})
 	expected := "hello world"
-	WriteResponse(buff, "Hello World")
+	WriteResponse(buff, expected)
 
 	responseOutput := buff.String()
 
