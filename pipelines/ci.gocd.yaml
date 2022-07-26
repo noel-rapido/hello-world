@@ -1,0 +1,30 @@
+format_version: 5
+pipelines:
+  hello-world-staging:
+    group: services-staging
+    materials:
+      repo:
+        git: git@github.com:noel-rapido/hello-world.git
+        branch: release
+    stages:
+      - build:
+          clean_workspace: true
+          jobs:
+            build:
+              elastic_profile_id: hermes
+              artifacts:
+                - build:
+                    source: build-state.json
+                    destination: artifacts
+              tasks:
+                - exec:
+                    command: hermes
+                    arguments:
+                      - build
+                      - manual
+                      - -e
+                      - staging
+                      - -o
+                      - build-state.json
+                      - -f
+                      - pipelines/skaffold.yaml

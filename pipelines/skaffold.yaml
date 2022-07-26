@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta5
+kind: Config
+build:
+  artifacts:
+    - image: asia.gcr.io/staging-host-12358/hello-world
+      docker:
+        dockerfile: Dockerfile
+  local:
+    push: true
+    useDockerCLI: true
+  tagPolicy:
+    envTemplate:
+      template: "v1.0.0"
+
+
