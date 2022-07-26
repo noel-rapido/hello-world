@@ -12,4 +12,14 @@ build:
     envTemplate:
       template: "v1.0.0"
 
-
+profiles:
+  - name: development
+    deploy:
+      statusCheckDeadlineSeconds: 300
+      helm:
+        releases:
+          - name: hello-world
+            namespace: services
+            chartPath: ./helm-charts/hello-world
+            valuesFiles:
+              - ./helm-charts/hello-world/values-development.yaml

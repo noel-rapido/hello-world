@@ -5,7 +5,7 @@ pipelines:
     materials:
       repo:
         git: git@github.com:noel-rapido/hello-world.git
-        branch: release
+        branch: master
     stages:
       - build:
           clean_workspace: true
@@ -23,8 +23,34 @@ pipelines:
                       - build
                       - manual
                       - -e
-                      - staging
+                      - development
                       - -o
+                      - build-state.json
+                      - -f
+                      - pipelines/skaffold.yaml
+      - deploy:
+          approval:
+            type: manual
+            allow_only_on_success: true
+          jobs:
+            deploy:
+              elastic_profile_id: hermes
+              tasks:
+                - fetch:
+                    stage: build
+                    job: build
+                    source: artifacts/build-state.json
+                    is_file: yes
+                - exec:
+                    command: hermes
+                    arguments:
+                      - deploy
+                      - manual
+                      - -e
+                      - development
+                      - -c
+                      - backend
+                      - -a
                       - build-state.json
                       - -f
                       - pipelines/skaffold.yaml
