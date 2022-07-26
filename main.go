@@ -13,5 +13,9 @@ func main() {
 
 }
 func helloHandler(w http.ResponseWriter, req *http.Request) {
-	io.WriteString(w, "Hello, world!\n")
+	WriteResponse(w, "Hello, world!\n")
+}
+
+func WriteResponse(w io.Writer, response string) {
+	io.WriteString(w, response)
 }
