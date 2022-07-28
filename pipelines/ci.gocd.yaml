@@ -1,7 +1,7 @@
 format_version: 5
 pipelines:
-  hello-world-staging:
-    group: services-staging
+  hello-world-dev:
+    group: gdp
     materials:
       repo:
         git: git@github.com:noel-rapido/hello-world.git
