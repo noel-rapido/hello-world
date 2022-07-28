@@ -29,9 +29,9 @@ pipelines:
                       - -f
                       - pipelines/skaffold.yaml
       - deploy:
-          approval:
-            # type: manual
-            allow_only_on_success: true
+          # approval:
+          #   # type: manual
+          #   allow_only_on_success: true
           jobs:
             deploy:
               elastic_profile_id: hermes
