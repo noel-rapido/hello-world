@@ -5,7 +5,7 @@ pipelines:
     materials:
       repo:
         git: git@github.com:noel-rapido/hello-world.git
-        branch: master
+        branch: auto-deploy
     stages:
       - build:
           clean_workspace: true
