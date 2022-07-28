@@ -30,7 +30,7 @@ pipelines:
                       - pipelines/skaffold.yaml
       - deploy:
           approval:
-#            type: manual
+            type: manual
             allow_only_on_success: true
           jobs:
             deploy:
