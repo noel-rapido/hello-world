@@ -5,6 +5,8 @@ metadata:
     app: hello-world
     stack: golang
     team: devops
+  annotations:
+      rollme: {{ randAlphaNum 5 | quote }}
   name: hello-world
   namespace: test
 spec:
@@ -25,6 +27,8 @@ spec:
       labels:
         app: hello-world
         team: devops
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }}
     spec:
       containers:
         - image: asia.gcr.io/staging-host-12358/hello-world:v1.0.0
