@@ -22,4 +22,4 @@ profiles:
             namespace: services
             chartPath: ./helm-charts/hello-world
             valuesFiles:
-              - ./helm-charts/hello-world/values-development.yaml
+              - ./helm-charts/hello-world/values.yaml
