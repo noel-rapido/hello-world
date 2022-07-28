@@ -20,7 +20,7 @@ profiles:
       helm:
         releases:
           - name: hello-world
-            namespace: services
+            namespace: test
             chartPath: ./helm-charts/hello-world
             valuesFiles:
               - ./helm-charts/hello-world/values.yaml
