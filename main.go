@@ -13,7 +13,7 @@ func main() {
 
 }
 func helloHandler(w http.ResponseWriter, req *http.Request) {
-	WriteResponse(w, "Hello, World!\n")
+	WriteResponse(w, "Hello, Noel!\n")
 }
 
 func WriteResponse(w io.Writer, response string) {
