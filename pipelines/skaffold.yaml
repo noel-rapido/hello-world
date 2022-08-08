@@ -9,10 +9,8 @@ build:
     push: true
     useDockerCLI: true
   tagPolicy:
-    gitCommit:
-      variant: AbbrevCommitSha
-      prefix: test-
-
+    envTemplate:
+      template: "v1.0.0"
 profiles:
   - name: development
     deploy:
